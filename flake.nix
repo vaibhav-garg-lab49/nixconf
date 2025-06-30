@@ -20,35 +20,38 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-wsl, ... } @ inputs:
-    let
-      inherit (self) outputs;
-      system = "x86_64-linux";
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nixos-wsl,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    system = "x86_64-linux";
   in {
     homeConfigurations = {
       "nixos" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system}; 
-        extraSpecialArgs = { inherit inputs outputs system; };
-        modules = [ ./home ];
+        pkgs = nixpkgs.legacyPackages.${system};
+        extraSpecialArgs = {inherit inputs outputs system;};
+        modules = [./home];
       };
     };
 
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-	inherit system;
-        modules = [
-          # Enable WSL support
-          nixos-wsl.nixosModules.wsl
-	  home-manager.nixosModules.home-manager
-          # Main system config
-          ./configuration.nix
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        # Enable WSL support
+        nixos-wsl.nixosModules.wsl
+        # Main system config
+        ./os/configuration.nix
 
-          # Enable flakes, unfree, and Home Manager integration
-          {
-            nix.settings.experimental-features = [ "nix-command" "flakes" ];
-            nixpkgs.config.allowUnfree = true;
-          }
-        ];
-      };
+        # Enable flakes, unfree, and Home Manager integration
+        {
+          nix.settings.experimental-features = ["nix-command" "flakes"];
+          nixpkgs.config.allowUnfree = true;
+        }
+      ];
     };
+  };
 }
-

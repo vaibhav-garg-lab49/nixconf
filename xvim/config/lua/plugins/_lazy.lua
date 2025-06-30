@@ -13,7 +13,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "Catppuccin",
+      colorscheme = "default",
     },
     import = "lazyvim.plugins",
   },

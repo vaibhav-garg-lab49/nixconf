@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./tui];
+  imports = [./tui ./gui];
 
   nixpkgs = {
     config = {
