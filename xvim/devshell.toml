@@ -1,0 +1,22 @@
+# https://numtide.github.io/devshell
+name = "xvim devshell"
+
+packages = [
+  "alejandra",
+  "lua-language-server",
+  "nixd",
+  "nodePackages_latest.bash-language-server",
+  "pre-commit",
+  "stylua"
+]
+
+[[commands]]
+name = "checks"
+help = "Run all nixvim checks"
+command = "nix flake check"
+
+[git.hooks]
+enable = true
+
+[git.hooks.pre-push]
+text = "pre-commit run --all-files"
