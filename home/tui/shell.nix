@@ -1,8 +1,6 @@
-{pkgs, ...}:
-  {
+{pkgs, ...}: {
   programs.nushell = {
     enable = true;
-    # configFile.source = ../dotfiles/nushell/config.nu;
     settings = {
       use_ansi_coloring = true;
       show_banner = false;
@@ -43,33 +41,34 @@
       buffer_editor = "nvim";
     };
     shellAliases = {
-    n = "nvim";
-    v = "nvim";
-    vi = "nvim";
-    vim = "nvim";
-    emacs = "nvim";
+      n = "nvim";
+      v = "nvim";
+      vi = "nvim";
+      vim = "nvim";
+      emacs = "nvim";
 
-    # Colors
-    ip = "ip -color";
-    grep = "grep --color=auto";
-    diff = "diff --color=auto";
-    tree = "tree -C";
+      # Colors
+      ip = "ip -color";
+      grep = "grep --color=auto";
+      diff = "diff --color=auto";
+      tree = "tree -C";
 
-    # Misc
-    t = "tldr";
-    df = "duf --hide special";
-    cat = "bat";
-    cp = "cp -v";
-    mv = "mv -v";
-    rm = "rm -v";
-    rmdir = "rmdir -p";
-    lg = "lazygit";
-    y = "yazi";
-    zj = "zellij";
-    c = "clear";
-        la = "ls -a";
-        ll = "ls -l";
-      };
+      # Misc
+      t = "tldr";
+      df = "duf --hide special";
+      cat = "bat";
+      cp = "cp -v";
+      mv = "mv -v";
+      rm = "rm -v";
+      rmdir = "rmdir -p";
+      lg = "lazygit";
+      ld = "lazydocker";
+      y = "yazi";
+      zj = "zellij";
+      c = "clear";
+      la = "ls -a";
+      ll = "ls -l";
+    };
     extraConfig = ''
       $env.NIX_SSL_CERT_FILE = "/mnt/c/Users/vaibhav.garg/certi/cacert.pem"
       $env.PATH = ($env.PATH | append [$"($env.HOME)/.nix-profile/bin" $"($env.HOME)/.local/bin" "/nix/var/nix/profiles/default/bin"])

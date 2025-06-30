@@ -22,6 +22,7 @@
     tldr
     unzip
     lazygit
+    lazydocker
     nil
     nixd
     nixfmt-rfc-style

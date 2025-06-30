@@ -3,9 +3,8 @@
   config,
   pkgs,
   ...
-}:
-{
-  imports = [ ./config ];
+}: {
+  imports = [./tui];
 
   nixpkgs = {
     config = {
