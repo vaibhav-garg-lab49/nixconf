@@ -71,6 +71,7 @@
     };
     extraConfig = ''
       $env.NIX_SSL_CERT_FILE = "/mnt/c/Users/vaibhav.garg/certi/cacert.pem"
+      $env.DOCKER_HOST = "unix:///run/user/1000/podman/podman.sock"
       $env.PATH = ($env.PATH | append [$"($env.HOME)/.nix-profile/bin" $"($env.HOME)/.local/bin" "/nix/var/nix/profiles/default/bin"])
       ${pkgs.krabby}/bin/krabby random --no-mega --no-gmax --no-regional --no-title -s
     '';
