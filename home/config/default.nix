@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  system,
   ...
 }: {
   imports = [
@@ -29,7 +30,7 @@
     gcc
     gdu
     claude-code
-    inputs.xvim.packages.aarch64-darwin.default
+    inputs.xvim.packages.${system}.default
     zellij
   ];
 

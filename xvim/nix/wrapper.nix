@@ -24,7 +24,6 @@
     )
   );
 
-  topiary-nu = pkgs.topiary-nu;
   extraPackages = with pkgs; [
     alejandra
     bash-language-server
@@ -55,7 +54,6 @@
     stylua
     terraform-ls
     tflint
-    topiary
     vscode-extensions.vadimcn.vscode-lldb.adapter
     vscode-js-debug
     vtsls
@@ -75,8 +73,6 @@ in
 
       cat > $out/bin/${appName} <<EOF
       #!/usr/bin/env bash
-      export TOPIARY_CONFIG_FILE=${topiary-nu}/languages.ncl
-      export TOPIARY_LANGUAGE_DIR=${topiary-nu}/languages
       export PATH=${extraPath}:\$PATH
       exec ${neovim}/bin/nvim \
         ${varCommands} \

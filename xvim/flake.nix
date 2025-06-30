@@ -13,10 +13,6 @@
       url = "github:ravitemer/mcp-hub";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    topiary-nu = {
-      url = "github:ck3mp3r/flakes?dir=topiary-nu";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     codecompanion = {
       url = "github:olimorris/codecompanion.nvim";
       flake = false;
@@ -27,7 +23,6 @@
     codecompanion,
     devshell,
     nixpkgs,
-    topiary-nu,
     flake-utils,
     mcphub-nvim,
     mcp-hub,
@@ -53,7 +48,6 @@
 
         overlays = [
           devshell.overlays.default
-          topiary-nu.overlays.default
           (final: next: {
             codecompanion-nvim = codecompanion';
             mcphub-nvim = mcphub-nvim.packages."${system}".default;
