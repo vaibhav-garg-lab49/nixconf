@@ -69,6 +69,7 @@
       la = "ls -a";
       ll = "ls -l";
       ij = "idea-community";
+      gm = "gomatrix";
     };
     extraConfig = ''
       $env.NIX_SSL_CERT_FILE = "/mnt/c/Users/vaibhav.garg/certi/cacert.pem"

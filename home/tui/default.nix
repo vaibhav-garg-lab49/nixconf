@@ -33,6 +33,7 @@
     gdu
     zellij
     inputs.xvim.packages.${system}.default
+    gomatrix
   ];
 
   fonts = {
