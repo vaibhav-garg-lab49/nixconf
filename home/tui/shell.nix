@@ -28,9 +28,9 @@
       };
 
       cursor_shape = {
-        emacs = "line";
-        vi_insert = "block";
-        vi_normal = "underscore";
+        emacs = "blink_underscore";
+        vi_insert = "blink_line";
+        vi_normal = "block";
       };
 
       footer_mode = 25;
