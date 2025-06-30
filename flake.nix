@@ -38,7 +38,7 @@
         modules = [
           # Enable WSL support
           nixos-wsl.nixosModules.wsl
-
+	  home-manager.nixosModules.home-manager
           # Main system config
           ./configuration.nix
 

@@ -71,7 +71,7 @@
         ll = "ls -l";
       };
     extraConfig = ''
-      $env.NIX_SSL_CERT_FILE = /mnt/c/Users/vaibhav.garg/certi/cacert.pem
+      $env.NIX_SSL_CERT_FILE = "/mnt/c/Users/vaibhav.garg/certi/cacert.pem"
       $env.PATH = ($env.PATH | append [$"($env.HOME)/.nix-profile/bin" $"($env.HOME)/.local/bin" "/nix/var/nix/profiles/default/bin"])
       ${pkgs.krabby}/bin/krabby random --no-mega --no-gmax --no-regional --no-title -s
     '';
