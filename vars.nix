@@ -1,8 +1,10 @@
 {
+  os_user = "v";
+  system_name = "nixwsl";
   # User information
-  userName = "vaibhav-garg";
-  userEmail = "vaibhav.garg@iongroup.com";
-  
+  git_user = "vaibhav-garg";
+  git_email = "vaibhav.garg@iongroup.com";
+
   # System paths
-  sslCertPath = "/mnt/c/Users/vaibhav.garg/certi/cacert.pem";
+  ssl_cert_path = "/mnt/c/Users/vaibhav.garg/certi/cacert.pem";
 }

@@ -1,9 +1,4 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{vars, ...}: {
   imports = [./tui ./gui];
 
   nixpkgs = {
@@ -13,8 +8,8 @@
   };
 
   home = {
-    username = "nixos";
-    homeDirectory = "/home/nixos";
+    username = vars.os_user;
+    homeDirectory = "/home/${vars.os_user}";
     sessionVariables = {
       backupFileExtension = "hm-bk";
       # Shell

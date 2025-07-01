@@ -1,5 +1,5 @@
 nixos:
-	sudo nixos-rebuild switch --flake .#nixos && home-manager switch --flake .#nixos -b backup
+	sudo nixos-rebuild switch --flake .#nixwsl && home-manager switch --flake .#v -b backup
 
 hm:
-	home-manager switch --flake .#nixos -b backup
+	home-manager switch --flake .#v -b backup

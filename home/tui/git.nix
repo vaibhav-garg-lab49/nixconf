@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  userVars,
+  vars,
   ...
 }: {
   # `programs.git` will generate the config file: ~/.config/git/config
@@ -16,8 +16,8 @@
     enable = true;
     lfs.enable = true;
 
-    userName = userVars.userName;
-    userEmail = userVars.userEmail;
+    userName = vars.git_user;
+    userEmail = vars.git_email;
 
     extraConfig = {
       init.defaultBranch = "main";

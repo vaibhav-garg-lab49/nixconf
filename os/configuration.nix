@@ -4,15 +4,17 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 {
-  config,
-  lib,
   pkgs,
+  vars,
   ...
 }: {
-  users.users.nixos = {
+  users.users.${vars.os_user} = {
+    isNormalUser = true;
+    createHome = true;
+    home = "/home/${vars.os_user}";
+    extraGroups = ["wheel"];
     shell = pkgs.nushell;
   };
-
   imports = [
     ./podman.nix
   ];

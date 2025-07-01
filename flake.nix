@@ -29,20 +29,21 @@
   } @ inputs: let
     inherit (self) outputs;
     system = "x86_64-linux";
+    vars = import ./vars.nix;
   in {
     homeConfigurations = {
-      "nixos" = home-manager.lib.homeManagerConfiguration {
+      ${vars.os_user} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = {
-          inherit inputs outputs system;
-          userVars = import ./vars.nix;
+          inherit inputs outputs system vars;
         };
         modules = [./home];
       };
     };
 
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.${vars.system_name} = nixpkgs.lib.nixosSystem {
       inherit system;
+      specialArgs = {inherit vars;};
       modules = [
         # Enable WSL support
         nixos-wsl.nixosModules.wsl
