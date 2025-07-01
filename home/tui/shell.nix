@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  userVars,
   ...
 }: {
   programs.nushell = {
@@ -49,7 +50,7 @@
         from_string = lib.hm.nushell.mkNushellInline "{|s| $s | split row (char esep) }";
         to_string = lib.hm.nushell.mkNushellInline "{|v| $v | str join (char esep) }";
       };
-      NIX_SSL_CERT_FILE = "/mnt/c/Users/vaibhav.garg/certi/cacert.pem";
+      NIX_SSL_CERT_FILE = userVars.sslCertPath;
       DOCKER_HOST = "unix:///run/user/1000/podman/podman.sock";
     };
     shellAliases = {
@@ -81,6 +82,7 @@
       la = "ls -a";
       ll = "ls -l";
       ij = "idea-community";
+      ipy = "pycharm-community";
       gm = "gomatrix";
     };
     extraConfig = ''

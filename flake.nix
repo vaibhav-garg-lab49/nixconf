@@ -33,7 +33,10 @@
     homeConfigurations = {
       "nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = {inherit inputs outputs system;};
+        extraSpecialArgs = {
+          inherit inputs outputs system;
+          userVars = import ./vars.nix;
+        };
         modules = [./home];
       };
     };
