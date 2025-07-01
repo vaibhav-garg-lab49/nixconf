@@ -34,6 +34,7 @@
     zellij
     inputs.xvim.packages.${system}.default
     gomatrix
+    awscli2
   ];
 
   fonts = {
