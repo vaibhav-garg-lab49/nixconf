@@ -14,12 +14,18 @@
   };
 
   imports = [
-    # include NixOS-WSL modules  <nixos-wsl/modules>
-    ./os/podman.nix
+    ./podman.nix
   ];
 
   environment.systemPackages = with pkgs; [
     home-manager
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc # GCC C++ runtime
+    zlib # needed by many python wheels
+    # add any other libraries uv/python might need
   ];
 
   wsl.enable = true;
