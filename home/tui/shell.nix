@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.nushell = {
     enable = true;
     settings = {
@@ -40,6 +44,14 @@
       render_right_prompt_on_last_line = false;
       buffer_editor = "nvim";
     };
+    environmentVariables = {
+      ENV_CONVERSIONS.PATH = {
+        from_string = lib.hm.nushell.mkNushellInline "{|s| $s | split row (char esep) }";
+        to_string = lib.hm.nushell.mkNushellInline "{|v| $v | str join (char esep) }";
+      };
+      NIX_SSL_CERT_FILE = "/mnt/c/Users/vaibhav.garg/certi/cacert.pem";
+      DOCKER_HOST = "unix:///run/user/1000/podman/podman.sock";
+    };
     shellAliases = {
       n = "nvim";
       v = "nvim";
@@ -72,8 +84,6 @@
       gm = "gomatrix";
     };
     extraConfig = ''
-      $env.NIX_SSL_CERT_FILE = "/mnt/c/Users/vaibhav.garg/certi/cacert.pem"
-      $env.DOCKER_HOST = "unix:///run/user/1000/podman/podman.sock"
       $env.PATH = ($env.PATH | append [$"($env.HOME)/.nix-profile/bin" $"($env.HOME)/.local/bin" "/nix/var/nix/profiles/default/bin"])
       ${pkgs.krabby}/bin/krabby random --no-mega --no-gmax --no-regional --no-title -s
     '';
