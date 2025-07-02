@@ -13,9 +13,6 @@
     '';
   });
 
-  mcphub-nvim = pkgs.mcphub-nvim;
-  codecompanion-nvim = pkgs.codecompanion-nvim;
-
   vimPlugins = with pkgs.vimPlugins; [
     # LazyVim
     LazyVimCustom
@@ -27,13 +24,10 @@
     # bufdelete-nvim
     bufferline-nvim
     catppuccin-nvim
-    codecompanion-nvim
     conform-nvim
     # copilot-cmp
-    copilot-lua
     crates-nvim
     # diffview-nvim
-    direnv-vim
     dressing-nvim
     flash-nvim
     friendly-snippets
@@ -53,7 +47,6 @@
     # mason-nvim
     # mason-lspconfig-nvim
     # mason-nvim-dap-nvim
-    mcphub-nvim
     mini-ai
     mini-comment
     mini-diff
@@ -114,7 +107,6 @@
   ];
 
   extraVars = {
-    "mcp_cli" = "${pkgs.mcp-hub}/bin/mcp-hub";
     "ts_parsers" = ts_parsers;
     "lazy_path" = plugins;
   };

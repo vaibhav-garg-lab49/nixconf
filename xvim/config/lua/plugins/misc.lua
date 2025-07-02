@@ -4,7 +4,6 @@ return {
     event = { "BufRead" },
   },
   {
-    "direnv/direnv.vim",
     event = { "VeryLazy" },
   },
   {
@@ -18,10 +17,8 @@ return {
     "stevearc/conform.nvim",
     event = "VeryLazy",
     opts = {
-      formatters_by_ft = {
-      },
-      formatters = {
-      },
+      formatters_by_ft = {},
+      formatters = {},
     },
   },
 }
