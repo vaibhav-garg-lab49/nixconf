@@ -85,7 +85,6 @@
     nvim-ts-context-commentstring
     nvim-web-devicons
     persistence-nvim
-    obsidian-nvim
     plenary-nvim
     # project-nvim
     rainbow-delimiters-nvim
@@ -104,6 +103,7 @@
     vim-helm
     vim-tmux-navigator
     which-key-nvim
+    dashboard-nvim
   ];
 
   ts_parsers = pkgs.callPackage ./plugins/treesitter_parsers.nix {};
