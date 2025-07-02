@@ -1,6 +1,6 @@
 # Variables - update these to match your vars.nix settings
-SYSTEM_NAME ?= nixwsl
-USER_NAME ?= v
+SYSTEM_NAME ?= nixos
+USER_NAME ?= nixos
 
 # Main targets
 nixos:
