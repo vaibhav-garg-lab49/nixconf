@@ -52,6 +52,7 @@
       };
       NIX_SSL_CERT_FILE = vars.ssl_cert_path;
       DOCKER_HOST = "unix:///run/user/1000/podman/podman.sock";
+      EDITOR = "nvim";
     };
     shellAliases = {
       n = "nvim";
