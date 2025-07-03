@@ -12,7 +12,7 @@
     isNormalUser = true;
     createHome = true;
     home = "/home/${vars.os_user}";
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "podman"];
     shell = pkgs.nushell;
   };
   imports = [

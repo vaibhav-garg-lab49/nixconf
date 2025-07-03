@@ -51,7 +51,6 @@
         to_string = lib.hm.nushell.mkNushellInline "{|v| $v | str join (char esep) }";
       };
       NIX_SSL_CERT_FILE = vars.ssl_cert_path;
-      DOCKER_HOST = "unix:///run/user/1000/podman/podman.sock";
       EDITOR = "nvim";
     };
     shellAliases = {
@@ -88,6 +87,8 @@
     };
     extraConfig = ''
       $env.PATH = ($env.PATH | append [$"($env.HOME)/.nix-profile/bin" $"($env.HOME)/.local/bin" "/nix/var/nix/profiles/default/bin"])
+      def podman_sock [] { $"unix:///run/user/(^id -u)/podman/podman.sock" }
+      $env.DOCKER_HOST = podman_sock
       def random-art [] {
         # Define two external command/argument lists
         let choices = [
