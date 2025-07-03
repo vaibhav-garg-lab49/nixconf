@@ -35,6 +35,7 @@
     inputs.xvim.packages.${system}.default
     gomatrix
     awscli2
+    duf
   ];
 
   fonts = {
