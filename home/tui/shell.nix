@@ -76,6 +76,7 @@
       rmdir = "rmdir -p";
       lg = "lazygit";
       ld = "lazydocker";
+      lj = "lazyjj";
       y = "yazi";
       zj = "zellij";
       c = "clear";

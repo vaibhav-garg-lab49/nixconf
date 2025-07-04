@@ -9,6 +9,7 @@
     ./direnv.nix
     ./git.nix
     ./helix.nix
+    ./jj.nix
     ./shell.nix
     ./starship.nix
     ./yazi.nix
@@ -21,7 +22,6 @@
     git-crypt
     tldr
     unzip
-    lazygit
     lazydocker
     ripgrep
     nil

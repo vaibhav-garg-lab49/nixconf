@@ -12,12 +12,16 @@
   home.activation.removeExistingGitconfig =
     lib.hm.dag.entryBefore ["checkLinkTargets"] "rm -f ${config.home.homeDirectory}/.gitconfig";
 
+  home.packages = with pkgs; [
+    lazygit
+  ];
+
   programs.git = {
     enable = true;
     lfs.enable = true;
 
-    userName = vars.git_user;
-    userEmail = vars.git_email;
+    userName = vars.vcs_user;
+    userEmail = vars.vcs_email;
 
     extraConfig = {
       init.defaultBranch = "main";
